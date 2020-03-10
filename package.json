@@ -13,8 +13,11 @@
         "type": "git",
         "url": "git+https://github.com/JeremyDahms/TypeScriptApp.git"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "typescript",
+        "react"
+    ],
+    "author": "Jeremy Dahms",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/JeremyDahms/TypeScriptApp/issues"
@@ -26,7 +29,6 @@
         "@types/webpack": "^4.41.7",
         "@typescript-eslint/eslint-plugin": "^2.23.0",
         "@typescript-eslint/parser": "^2.23.0",
-        "awesome-typescript-loader": "^5.2.1",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.10.0",
         "eslint-import-resolver-webpack": "^0.12.1",
@@ -36,6 +38,7 @@
         "html-webpack-plugin": "^3.2.0",
         "prettier": "^1.19.1",
         "source-map-loader": "^0.2.4",
+        "ts-loader": "^6.2.1",
         "typescript": "^3.8.3",
         "webpack": "^4.42.0",
         "webpack-cli": "^3.3.11",
