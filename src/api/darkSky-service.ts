@@ -1,10 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 interface ServerResponse {
-    data: any;
-}
-interface ServerError {
-    data: any;
+    data: object;
 }
 
 const apiClient = axios.create({

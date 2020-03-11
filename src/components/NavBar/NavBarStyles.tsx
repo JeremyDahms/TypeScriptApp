@@ -27,8 +27,8 @@ export const Navbar = styled.nav`
 `;
 
 export const Brand = styled.a`
+    font-size: 24px;
     font-weight: bold;
-    font-style: italic;
     margin-left: 1rem;
     padding-right: 1rem;
 `;

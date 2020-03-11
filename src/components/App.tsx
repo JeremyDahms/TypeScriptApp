@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { getWeather, getCurrentWeather } from '../api/darkSky-service';
+import { getCurrentWeather } from '../api/darkSky-service';
 import NavbarScroller from './NavBar/NavbarScroller';
 
 const navigation = {
-    brand: { name: 'NavbarScroller', to: '/' },
+    brand: { name: 'The App', to: '/' },
     links: [
         {
             name: 'About Me',
@@ -46,7 +46,11 @@ class App extends React.Component {
             <div className="App">
                 <NavbarScroller brand={brand} links={links} />
                 <h1>Welcome to React with Typescript</h1>
-                <p>The current temperature is {weather.temperature}</p>
+                <h2>The current temperature is {weather.temperature}</h2>
+                <div>
+                    <div>Image Placeholder</div>
+                    <div>Data</div>
+                </div>
             </div>
         );
     }

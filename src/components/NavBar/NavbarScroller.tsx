@@ -15,7 +15,6 @@ const NavbarScroller = (props: {
     return (
         <Navbar>
             <Brand href={brand.to}>{brand.name}</Brand>
-
             <Ul>
                 <NavLinks />
             </Ul>
