@@ -1,4 +1,5 @@
 import * as React from 'react';
+import rain from './rain.svg';
 
 interface WeatherProps {
     icon: string;
@@ -8,7 +9,7 @@ interface WeatherProps {
 const WeatherCard = (props: WeatherProps): JSX.Element => {
     return (
         <div>
-            <div>{props.icon}</div>
+            <img src={rain} alt={props.icon} />
             <div>{props.temperature}</div>
         </div>
     );

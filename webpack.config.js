@@ -24,6 +24,10 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.svg$/,
+                loader: 'url-loader',
+            },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 enforce: 'pre',
