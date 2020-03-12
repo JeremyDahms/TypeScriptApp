@@ -52,8 +52,10 @@
     },
     "dependencies": {
         "axios": "^0.19.2",
+        "canvas": "^2.6.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
+        "skycons": "^1.0.0",
         "styled-components": "^5.0.1"
     },
     "husky": {

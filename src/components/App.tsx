@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { getCurrentWeather } from '../api/darkSky-service';
+import { getWeather } from '../api/darkSky-service';
 import NavbarScroller from './NavBar/NavbarScroller';
 import WeatherCard from './WeatherCard/WeatherCard';
 import { WeatherRow, Card } from './AppStyles';
@@ -31,25 +31,31 @@ const navigation = {
     ],
 };
 
-const initialState = { weather: { temperature: '' } };
+const initialState = { weather: { temperature: '', daily: { data: [] } } };
 type State = Readonly<typeof initialState>;
 
 class App extends React.Component {
     readonly state: State = initialState;
 
     componentDidMount(): void {
-        getCurrentWeather().then(res => this.setState({ weather: res }));
+        getWeather().then(res => this.setState({ weather: res }));
     }
 
     render(): JSX.Element {
-        const numbers = [1, 2, 3, 4, 5];
+        let listItems;
         const { weather } = this.state;
-        const { temperature } = weather;
-        const listItems = numbers.map(number => (
-            <Card key={number.toString()}>
-                <WeatherCard temperature={temperature} />
-            </Card>
-        ));
+        const { daily } = weather;
+        if (daily) {
+            const dailyData = daily.data;
+            listItems = dailyData.map(day => {
+                return (
+                    <Card key={day.time}>
+                        <WeatherCard icon={day.icon} temperature={day.temperatureHigh} />
+                    </Card>
+                );
+            });
+        }
+
         const { brand, links } = navigation;
         return (
             <div className="App">

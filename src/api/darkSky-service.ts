@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 
 interface ServerResponse {
     data: object;
@@ -12,9 +12,9 @@ const apiClient = axios.create({
     },
 });
 
-export const getWeather = (): Promise<AxiosResponse | AxiosError> => {
+export const getWeather = (): Promise<ServerResponse | AxiosError> => {
     try {
-        const response = apiClient.get('/42.3601,-71.0589').then(res => res);
+        const response = apiClient.get('/42.3601,-71.0589').then(res => res.data);
         return response;
     } catch (err) {
         if (err && err.response) {
