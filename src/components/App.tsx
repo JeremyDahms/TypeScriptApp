@@ -3,7 +3,7 @@ import * as React from 'react';
 import { getWeather } from '../api/darkSky-service';
 import NavbarScroller from './NavBar/NavbarScroller';
 import WeatherCard from './WeatherCard/WeatherCard';
-import { WeatherRow, Card } from './AppStyles';
+import { WeatherRow, Card } from './appStyles';
 
 const navigation = {
     brand: { name: 'The App', to: '/' },

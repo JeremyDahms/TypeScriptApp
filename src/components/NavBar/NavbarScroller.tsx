@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Navbar, Brand, Li, Ul } from './NavBarStyles';
+import { Navbar, Brand, Li, Ul } from './navBarStyles';
 
 const NavbarScroller = (props: {
     brand: { name: string; to: string };

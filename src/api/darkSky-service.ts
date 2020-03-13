@@ -4,8 +4,11 @@ interface ServerResponse {
     data: object;
 }
 
+const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+const url = 'https://api.darksky.net/forecast/ab3cf0e839b6de75fab9bf2b051aae56';
+
 const apiClient = axios.create({
-    baseURL: 'https://api.darksky.net/forecast/ab3cf0e839b6de75fab9bf2b051aae56',
+    baseURL: proxyurl + url,
     responseType: 'json',
     headers: {
         'Content-Type': 'application/json',
