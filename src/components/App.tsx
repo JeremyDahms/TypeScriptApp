@@ -3,7 +3,7 @@ import * as React from 'react';
 import { getWeather } from '../api/darkSky-service';
 import NavbarScroller from './NavBar/NavbarScroller';
 import WeatherCard from './WeatherCard/WeatherCard';
-import { WeatherRow, Card } from './appStyles';
+import { WeatherRow } from './app-styles';
 
 const navigation = {
     brand: { name: 'The App', to: '/' },
@@ -49,9 +49,13 @@ class App extends React.Component {
             const dailyData = daily.data;
             listItems = dailyData.map(day => {
                 return (
-                    <Card key={day.time}>
-                        <WeatherCard icon={day.icon} temperature={day.temperatureHigh} />
-                    </Card>
+                    <WeatherCard
+                        key={day.time}
+                        icon={day.icon}
+                        summary={day.summary}
+                        temperatureHigh={day.temperatureHigh}
+                        temperatureLow={day.temperatureLow}
+                    />
                 );
             });
         }
