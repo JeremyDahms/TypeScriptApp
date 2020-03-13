@@ -8,6 +8,8 @@ export const Card = styled.div`
     width: 80%;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
     border-radius: 2em;
     margin: 0.2em;
     padding 1em;
@@ -15,14 +17,19 @@ export const Card = styled.div`
 
 export const Summary = styled.span`
     font-family: ${Theme.fonts.body};
-    font-size: 0.75em;
+    font-size: 1em;
     text-align: center;
-    height: 40px;
+    margin: 1em;
+`;
+
+export const Icon = styled.img`
+    margin: 0;
 `;
 
 export const Temperatures = styled.div`
     color: #8b008b;
     display: flex;
+    font-size: 1.2em;
     flex-direction: row;
 `;
 

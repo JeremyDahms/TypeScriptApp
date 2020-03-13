@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import { Theme } from '../app-styles';
 
 export const Navbar = styled.nav`
-    background: ${Theme.colors.teal};
+    background: ${Theme.colors.header};
     font-family: ${Theme.fonts.heading};
     color: ${Theme.colors.light};
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 2em;
+    border-radius: 0.2em;
     a {
         color: white;
         text-decoration: none;

@@ -6,7 +6,7 @@ import WeatherCard from './WeatherCard/WeatherCard';
 import { Day, DayOfTheWeek, Heading, WeatherRow } from './app-styles';
 
 const navigation = {
-    brand: { name: 'The App', to: '/' },
+    brand: { name: 'Jeremy Dahms', to: '/' },
     links: [
         {
             name: 'About Me',

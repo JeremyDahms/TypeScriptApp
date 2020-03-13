@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, Summary, Temperatures, TemperatureHigh, TemperatureLow } from './weather-card-styles';
+import { Card, Icon, Summary, Temperatures, TemperatureHigh, TemperatureLow } from './weather-card-styles';
 import clearday from '../../assets/clear-day.svg';
 import cloudy from '../../assets/cloudy.svg';
 import fog from '../../assets/fog.svg';
@@ -34,7 +34,7 @@ const WeatherCard = (props: WeatherProps): JSX.Element => {
     const { icon, summary, temperatureHigh, temperatureLow } = props;
     return (
         <Card>
-            <img src={getIcon(icon)} alt={icon} />
+            <Icon src={getIcon(icon)} alt={icon} />
             <Summary>{summary}</Summary>
             <Temperatures>
                 <TemperatureHigh>{temperatureHigh}</TemperatureHigh>
