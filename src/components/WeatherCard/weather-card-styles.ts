@@ -1,26 +1,14 @@
 import styled from 'styled-components';
-
-const Theme = {
-    colors: {
-        bg: `#fff`,
-        dark: `#24292e`,
-        light: `#F0F8FF`,
-        red: `#ff5851`,
-    },
-    fonts: {
-        body: `IBM Plex Sans, sans-serif`,
-        heading: `IBM Plex Sans, sans-serif`,
-    },
-};
+import { Theme } from '../app-styles';
 
 export const Card = styled.div`
-    background: ${Theme.colors.light};
+    background: ${Theme.colors.aliceBlue};
     color: ${Theme.colors.dark};
     display: flex;
-    flex: 1;
+    width: 80%;
     flex-direction: column;
     align-items: center;
-    border-radius: 3em;
+    border-radius: 2em;
     margin: 0.2em;
     padding 1em;
 `;
@@ -33,6 +21,7 @@ export const Summary = styled.span`
 `;
 
 export const Temperatures = styled.div`
+    color: #8b008b;
     display: flex;
     flex-direction: row;
 `;
@@ -45,5 +34,7 @@ export const TemperatureHigh = styled.div`
 
 export const TemperatureLow = styled.div`
     font-family: ${Theme.fonts.body};
+    font-weight: bold;
+    opacity: 0.5;
     margin-left: 0.75em;
 `;

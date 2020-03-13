@@ -4,6 +4,11 @@ interface ServerResponse {
     data: object;
 }
 
+interface LocationProps {
+    latitude: number;
+    longitude: number;
+}
+
 const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 const url = 'https://api.darksky.net/forecast/ab3cf0e839b6de75fab9bf2b051aae56';
 
@@ -15,22 +20,11 @@ const apiClient = axios.create({
     },
 });
 
-export const getWeather = (): Promise<ServerResponse | AxiosError> => {
+export const getWeather = (coordinates: LocationProps): Promise<ServerResponse | AxiosError> => {
     try {
-        const response = apiClient.get('/42.3601,-71.0589').then(res => res.data);
-        return response;
-    } catch (err) {
-        if (err && err.response) {
-            const axiosError = err as AxiosError;
-            return axiosError.response.data;
-        }
-        throw err;
-    }
-};
-
-export const getCurrentWeather = (): Promise<ServerResponse | AxiosError> => {
-    try {
-        const response = apiClient.get('/42.3601,-71.0589').then(res => res.data.currently);
+        const latitude = coordinates.latitude;
+        const longitude = coordinates.longitude;
+        const response = apiClient.get(`/${latitude},${longitude}`).then(res => res.data);
         return response;
     } catch (err) {
         if (err && err.response) {

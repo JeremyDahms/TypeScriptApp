@@ -3,7 +3,7 @@ import * as React from 'react';
 import { getWeather } from '../api/darkSky-service';
 import NavbarScroller from './NavBar/NavbarScroller';
 import WeatherCard from './WeatherCard/WeatherCard';
-import { WeatherRow } from './app-styles';
+import { Day, DayOfTheWeek, Heading, WeatherRow } from './app-styles';
 
 const navigation = {
     brand: { name: 'The App', to: '/' },
@@ -31,6 +31,39 @@ const navigation = {
     ],
 };
 
+const daysOfTheWeek = {
+    SUNDAY: 0,
+    MONDAY: 1,
+    TUESDAY: 2,
+    WEDNESDAY: 3,
+    THURSDAY: 4,
+    FRIDAY: 5,
+    SATURDAY: 6,
+};
+
+const getDayOfWeek = (dayOffset: number): string => {
+    if (dayOffset === 0) return 'TODAY';
+    const dayOfTheWeek = new Date().getDay();
+    let day = dayOfTheWeek + dayOffset;
+    if (day > 6) day -= 7;
+    switch (day) {
+        case daysOfTheWeek.SUNDAY:
+            return 'Sunday';
+        case daysOfTheWeek.MONDAY:
+            return 'Monday';
+        case daysOfTheWeek.TUESDAY:
+            return 'Tuesday';
+        case daysOfTheWeek.WEDNESDAY:
+            return 'Wednesday';
+        case daysOfTheWeek.THURSDAY:
+            return 'Thursday';
+        case daysOfTheWeek.FRIDAY:
+            return 'Friday';
+        case daysOfTheWeek.SATURDAY:
+            return 'Saturday';
+    }
+};
+
 const initialState = { weather: { temperature: '', daily: { data: [] } } };
 type State = Readonly<typeof initialState>;
 
@@ -38,7 +71,9 @@ class App extends React.Component {
     readonly state: State = initialState;
 
     componentDidMount(): void {
-        getWeather().then(res => this.setState({ weather: res }));
+        navigator.geolocation.getCurrentPosition(currentPosition => {
+            getWeather(currentPosition.coords).then(res => this.setState({ weather: res }));
+        });
     }
 
     render(): JSX.Element {
@@ -47,15 +82,17 @@ class App extends React.Component {
         const { daily } = weather;
         if (daily) {
             const dailyData = daily.data;
-            listItems = dailyData.map(day => {
+            listItems = dailyData.map((day, index) => {
                 return (
-                    <WeatherCard
-                        key={day.time}
-                        icon={day.icon}
-                        summary={day.summary}
-                        temperatureHigh={day.temperatureHigh}
-                        temperatureLow={day.temperatureLow}
-                    />
+                    <Day key={day.time}>
+                        <DayOfTheWeek>{getDayOfWeek(index)}</DayOfTheWeek>
+                        <WeatherCard
+                            icon={day.icon}
+                            summary={day.summary}
+                            temperatureHigh={day.temperatureHigh}
+                            temperatureLow={day.temperatureLow}
+                        />
+                    </Day>
                 );
             });
         }
@@ -64,7 +101,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <NavbarScroller brand={brand} links={links} />
-                <h1>Welcome to React with Typescript</h1>
+                <Heading>Forecast</Heading>
                 <WeatherRow>{listItems}</WeatherRow>
             </div>
         );

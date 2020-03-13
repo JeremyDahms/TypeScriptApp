@@ -1,20 +1,8 @@
 import styled from 'styled-components';
-
-export const Theme = {
-    colors: {
-        bg: `#fff`,
-        dark: `#24292e`,
-        light: `#EEEEEE`,
-        red: `#ff5851`,
-    },
-    fonts: {
-        body: `IBM Plex Sans, sans-serif`,
-        heading: `IBM Plex Sans, sans-serif`,
-    },
-};
+import { Theme } from '../app-styles';
 
 export const Navbar = styled.nav`
-    background: ${Theme.colors.dark};
+    background: ${Theme.colors.teal};
     font-family: ${Theme.fonts.heading};
     color: ${Theme.colors.light};
     display: flex;
@@ -28,7 +16,6 @@ export const Navbar = styled.nav`
 
 export const Brand = styled.a`
     font-size: 24px;
-    font-weight: bold;
     margin-left: 1rem;
     padding-right: 1rem;
 `;
