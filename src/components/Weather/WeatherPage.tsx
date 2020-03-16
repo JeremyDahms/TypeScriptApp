@@ -72,8 +72,9 @@ class WeatherPage extends React.PureComponent {
         }
         return (
             <div className="Weather">
-                <Heading>Forecast</Heading>
                 <WeatherRow>{listItems}</WeatherRow>
+
+                <Heading>Forecast</Heading>
             </div>
         );
     }

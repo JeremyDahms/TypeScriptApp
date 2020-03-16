@@ -2,15 +2,14 @@
 
 export const Theme = {
     colors: {
-        aliceBlue: `#F0F8FF`,
-        bg: `#fff`,
-        cream: '#fff7f0',
-        dark: `#24292e`,
-        light: `#EEEEEE`,
-        header: `#6495ED`,
-        red: `#ff5851`,
-        royalBlue: '#4169E1',
-        teal: `#008080`,
+        aliceBlue: '#F0F8FF',
+        cream: '#FFF9F0',
+        dark: '#24292e',
+        light: '#EEEEEE',
+        primary: '#282828',
+        primaryLight: '#C2C2C2',
+        primaryDarkRed: '#422E2E',
+        red: '#FF5851',
     },
     fonts: {
         body: `IBM Plex Sans, sans-serif`,

@@ -3,7 +3,7 @@ import { Theme } from '../../app-styles';
 
 export const Card = styled.div`
     background: ${Theme.colors.aliceBlue};
-    color: ${Theme.colors.dark};
+    color: ${Theme.colors.primaryDarkRed};
     display: flex;
     width: 80%;
     flex-direction: column;
@@ -28,7 +28,6 @@ export const Icon = styled.img`
 `;
 
 export const Temperatures = styled.div`
-    color: #8b008b;
     display: flex;
     font-size: 2em;
     flex-direction: row;

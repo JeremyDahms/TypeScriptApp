@@ -2,22 +2,22 @@ import styled from 'styled-components';
 import { Theme } from '../app-styles';
 
 export const Navbar = styled.nav`
-    background: ${Theme.colors.header};
+    background: ${Theme.colors.primary};
     font-family: ${Theme.fonts.heading};
-    color: ${Theme.colors.light};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 2em;
-    border-radius: 0.2em;
+    padding-right: 2rem;
+    padding-left: 2rem;
     a {
-        color: white;
+        color: ${Theme.colors.primaryLight};
         text-decoration: none;
     }
 `;
 
 export const Brand = styled.a`
-    font-size: 24px;
+    font-size: 1rem;
+    font-weight: bold;
     margin-left: 1rem;
     padding-right: 1rem;
 `;
@@ -35,15 +35,6 @@ export const Li = styled.li`
     -webkit-box-pack: center;
     -webkit-tap-highlight-color: transparent;
     align-items: center;
-    color: #999;
-    height: 100%;
-    justify-content: center;
-    text-decoration: none;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    -webkit-tap-highlight-color: transparent;
-    align-items: center;
-    color: #999;
     display: flex;
     font-size: 14px;
     height: 50px;
@@ -52,4 +43,7 @@ export const Li = styled.li`
     margin: 0 10px;
     text-decoration: none;
     white-space: nowrap;
+    a:hover {
+        color: white;
+    }
 `;
