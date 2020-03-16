@@ -1,5 +1,5 @@
 import * as React from 'react';
-//import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import NavbarScroller from './NavBar/NavbarScroller';
 import WeatherPage from './Weather/WeatherPage';
@@ -12,16 +12,12 @@ const navigation = {
             to: '/about',
         },
         {
-            name: 'Blog',
-            to: '/blog',
+            name: 'Weather',
+            to: '/weather',
         },
         {
             name: 'Development',
             to: '/dev',
-        },
-        {
-            name: 'Graphic Designer',
-            to: '/design',
         },
         {
             name: 'Contact',
@@ -34,10 +30,28 @@ class App extends React.Component {
     render(): JSX.Element {
         const { brand, links } = navigation;
         return (
-            <div className="App">
-                <NavbarScroller brand={brand} links={links} />
-                <WeatherPage />
-            </div>
+            <Router>
+                <div>
+                    <NavbarScroller brand={brand} links={links} />
+                    <Switch>
+                        <Route path="/about">
+                            <div>Placeholder for about section</div>
+                        </Route>
+                        <Route path="/contact">
+                            <div>Placeholder for contact section</div>
+                        </Route>
+                        <Route path="/dev">
+                            <div>Placeholder for development section</div>
+                        </Route>
+                        <Route path="/weather">
+                            <WeatherPage />
+                        </Route>
+                        <Route path="/">
+                            <div>Home</div>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
         );
     }
 }

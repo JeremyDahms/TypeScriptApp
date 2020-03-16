@@ -1,8 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.tsx',
@@ -11,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.min.js',
+        filename: '[name].[hash].js',
     },
     module: {
         rules: [
@@ -37,8 +36,12 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
     ],
+    optimization: {
+        runtimeChunk: 'single',
+    },
 };

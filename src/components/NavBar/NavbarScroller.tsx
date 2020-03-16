@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Navbar, Brand, Li, Ul } from './navbar-styles';
+import { Link } from 'react-router-dom';
 
 const NavbarScroller = (props: {
     brand: { name: string; to: string };
@@ -9,7 +10,7 @@ const NavbarScroller = (props: {
     const NavLinks = (): any =>
         links.map((link: { name: string; to: string }) => (
             <Li key={link.name}>
-                <a href={link.to}>{link.name}</a>
+                <Link to={link.to}>{link.name}</Link>
             </Li>
         ));
     return (

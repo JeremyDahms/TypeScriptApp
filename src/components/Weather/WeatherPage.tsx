@@ -4,7 +4,7 @@ import { getWeather } from '../../api/darkSky-service';
 
 import WeatherCard from './WeatherCard/WeatherCard';
 
-import { Day, DayOfTheWeek, Heading, WeatherRow } from '../app-styles';
+import { Day, DayOfTheWeek, Heading, WeatherRow } from './weather-styles';
 
 const initialState = { weather: { temperature: '', daily: { data: [] } } };
 type State = Readonly<typeof initialState>;
