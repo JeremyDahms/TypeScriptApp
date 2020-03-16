@@ -9,7 +9,7 @@ interface LocationProps {
     longitude: number;
 }
 
-const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+const proxyurl = 'https://agile-depths-26957.herokuapp.com/';
 const url = 'https://api.darksky.net/forecast/ab3cf0e839b6de75fab9bf2b051aae56';
 
 const apiClient = axios.create({

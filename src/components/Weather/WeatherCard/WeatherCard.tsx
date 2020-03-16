@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Card, Icon, Summary, Temperatures, TemperatureHigh, TemperatureLow } from './weather-card-styles';
-import clearday from '../../assets/clear-day.svg';
-import cloudy from '../../assets/cloudy.svg';
-import fog from '../../assets/fog.svg';
-import partlycloudyday from '../../assets/partly-cloudy-day.svg';
-import rain from '../../assets/rain.svg';
+import clearday from '../../../assets/clear-day.svg';
+import cloudy from '../../../assets/cloudy.svg';
+import fog from '../../../assets/fog.svg';
+import partlycloudyday from '../../../assets/partly-cloudy-day.svg';
+import rain from '../../../assets/rain.svg';
+import snow from '../../../assets/snow.svg';
 
 interface WeatherProps {
     icon: string;
@@ -26,6 +27,8 @@ const getIcon = (icon: string): any => {
             return partlycloudyday;
         case 'rain':
             return rain;
+        case 'snow':
+            return snow;
     }
     return null;
 };

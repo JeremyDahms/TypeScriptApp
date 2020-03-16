@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Theme } from '../app-styles';
+import { Theme } from '../../app-styles';
 
 export const Card = styled.div`
     background: ${Theme.colors.aliceBlue};
