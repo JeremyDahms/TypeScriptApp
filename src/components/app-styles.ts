@@ -4,6 +4,7 @@ export const Theme = {
     colors: {
         aliceBlue: `#F0F8FF`,
         bg: `#fff`,
+        cream: '#fff7f0',
         dark: `#24292e`,
         light: `#EEEEEE`,
         header: `#6495ED`,

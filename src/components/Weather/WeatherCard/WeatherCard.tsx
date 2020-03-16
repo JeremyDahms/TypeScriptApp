@@ -40,8 +40,8 @@ const WeatherCard = (props: WeatherProps): JSX.Element => {
             <Icon src={getIcon(icon)} alt={icon} />
             <Summary>{summary}</Summary>
             <Temperatures>
-                <TemperatureHigh>{temperatureHigh}</TemperatureHigh>
-                <TemperatureLow>{temperatureLow}</TemperatureLow>
+                <TemperatureHigh>{Math.round(parseFloat(temperatureHigh)) + '\xB0'}</TemperatureHigh>
+                <TemperatureLow>{Math.round(parseFloat(temperatureLow)) + '\xB0'}</TemperatureLow>
             </Temperatures>
         </Card>
     );

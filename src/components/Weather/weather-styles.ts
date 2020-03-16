@@ -25,7 +25,7 @@ export const Heading = styled.h1`
 
 export const WeatherRow = styled.div`
     font-family: ${Theme.fonts.heading};
-    color: ${Theme.colors.light};
+    color: ${Theme.colors.cream};
     display: flex;
     flex-direction: row;
     justify-content: space-between;

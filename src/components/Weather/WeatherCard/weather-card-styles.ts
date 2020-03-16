@@ -18,8 +18,9 @@ export const Card = styled.div`
 export const Summary = styled.span`
     font-family: ${Theme.fonts.body};
     font-size: 1em;
+    font-style: italic;
     text-align: center;
-    margin: 1em;
+    margin-bottom: 2em;
 `;
 
 export const Icon = styled.img`
@@ -29,7 +30,7 @@ export const Icon = styled.img`
 export const Temperatures = styled.div`
     color: #8b008b;
     display: flex;
-    font-size: 1.2em;
+    font-size: 2em;
     flex-direction: row;
 `;
 
