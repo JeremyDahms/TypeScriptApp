@@ -25,30 +25,44 @@ export const CWDisplay = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
-    align-items: flex-start;
-    margin: 0.5em;
+    width: 70%;
     padding 1em;
 `;
 
 export const CWInfoContainer = styled.div`
     display: flex;
     flex-direction: row;
-    font-size: 1.2rem;
-    width: 70%;
+    font-size: 1.5rem;
+    width: 100%;
     padding-top: 0.2rem;
 `;
 
 export const CWInfoName = styled.div`
+    color: #526a80;
     text-align: right;
     font-weight: bold;
     margin-right: 1rem;
-    width: 40%;
+    width: 30%;
 `;
 
 export const CWInfoData = styled.div`
+    color: #787c80;
     text-align: left;
-    width: 20%;
+    width: 30%;
+`;
+
+export const CWSummary = styled.div`
+    color: #a3d4ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-family: ${Theme.fonts.heading};
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 2em;
+    height: auto;
+    width: 25%;
 `;
 
 export const Day = styled.div`
@@ -79,7 +93,7 @@ export const Icon = styled.img`
 export const IconCurrent = styled.img`
     margin: 0;
     height: auto;
-    width: 30%;
+    width: 20%;
 `;
 
 export const Summary = styled.span`

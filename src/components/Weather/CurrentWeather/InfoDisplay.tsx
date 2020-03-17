@@ -18,10 +18,6 @@ const convertKeyToDisplayName = (keyName: string): string => {
             return 'Chance of Preciptation';
         case 'pressure':
             return 'Pressure';
-        case 'summary':
-            return 'Summary';
-        case 'temperature':
-            return 'Temperature';
         case 'windBearing':
             return 'Wind Bearing';
         case 'windGust':
