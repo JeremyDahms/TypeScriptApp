@@ -1,11 +1,6 @@
 import * as React from 'react';
-import { Card, Icon, Summary, Temperatures, TemperatureHigh, TemperatureLow } from './weather-card-styles';
-import clearday from '../../../assets/clear-day.svg';
-import cloudy from '../../../assets/cloudy.svg';
-import fog from '../../../assets/fog.svg';
-import partlycloudyday from '../../../assets/partly-cloudy-day.svg';
-import rain from '../../../assets/rain.svg';
-import snow from '../../../assets/snow.svg';
+import { getIcon } from '../weatherHelpers';
+import { Card, Icon, Summary, Temperatures, TemperatureHigh, TemperatureLow } from '../weather-styles';
 
 interface WeatherProps {
     icon: string;
@@ -13,25 +8,6 @@ interface WeatherProps {
     temperatureHigh: string;
     temperatureLow: string;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getIcon = (icon: string): any => {
-    switch (icon) {
-        case 'clear-day':
-            return clearday;
-        case 'cloudy':
-            return cloudy;
-        case 'fog':
-            return fog;
-        case 'partly-cloudy-day':
-            return partlycloudyday;
-        case 'rain':
-            return rain;
-        case 'snow':
-            return snow;
-    }
-    return null;
-};
 
 const WeatherCard = (props: WeatherProps): JSX.Element => {
     const { icon, summary, temperatureHigh, temperatureLow } = props;

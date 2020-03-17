@@ -1,13 +1,8 @@
 import * as React from 'react';
-
 import { getWeather } from '../../api/darkSky-service';
-
 import WeatherCard from './WeatherCard/WeatherCard';
-
+import CurrentWeather from './CurrentWeather/CurrentWeather';
 import { Day, DayOfTheWeek, Heading, WeatherRow } from './weather-styles';
-
-const initialState = { weather: { temperature: '', daily: { data: [] } } };
-type State = Readonly<typeof initialState>;
 
 const daysOfTheWeek = {
     SUNDAY: 0,
@@ -41,6 +36,15 @@ const getDayOfWeek = (dayOffset: number): string => {
             return 'Saturday';
     }
 };
+
+const initialState = {
+    weather: {
+        currently: {},
+        daily: { data: [] },
+    },
+};
+type State = Readonly<typeof initialState>;
+
 class WeatherPage extends React.PureComponent {
     readonly state: State = initialState;
 
@@ -51,7 +55,7 @@ class WeatherPage extends React.PureComponent {
     }
 
     render(): JSX.Element {
-        let listItems;
+        let listItems: {};
         const { weather } = this.state;
         const { daily } = weather;
         if (daily) {
@@ -73,8 +77,8 @@ class WeatherPage extends React.PureComponent {
         return (
             <div className="Weather">
                 <WeatherRow>{listItems}</WeatherRow>
-
-                <Heading>Forecast</Heading>
+                <Heading>Current Weather</Heading>
+                {weather && <CurrentWeather currentWeather={weather.currently} />}
             </div>
         );
     }
