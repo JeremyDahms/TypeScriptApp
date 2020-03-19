@@ -30,29 +30,6 @@ const convertKeyToDisplayName = (keyName: string): string => {
             return null;
     }
 };
-/**
- * "currently": {
-        "time": 1584397980,
-        "summary": "Partly Cloudy",
-        "icon": "partly-cloudy-day",
-        "nearestStormDistance": 21,
-        "nearestStormBearing": 190,
-        "precipIntensity": 0,
-        "precipProbability": 0,
-        "temperature": 31.22,
-        "apparentTemperature": 23.6,
-        "dewPoint": 17.07,
-        "humidity": 0.55,
-        "pressure": 1034.8,
-        "windSpeed": 8.5,
-        "windGust": 13.85,
-        "windBearing": 112,
-        "cloudCover": 0.43,
-        "uvIndex": 0,
-        "visibility": 10,
-        "ozone": 348.3
-    },
-*/
 
 const InfoDisplay = (props: DisplayProps): JSX.Element => {
     const infoName = convertKeyToDisplayName(props.infoName);

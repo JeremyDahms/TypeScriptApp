@@ -1,47 +1,11 @@
 import * as React from 'react';
 import { getWeather } from '../../api/darkSky-service';
-import WeatherCard from './WeatherCard/WeatherCard';
+import WeatherCardContainer from './WeatherCard/WeatherCardContainer';
 import CurrentWeather from './CurrentWeather/CurrentWeather';
-import { Day, DayOfTheWeek, Heading, WeatherRow } from './weather-styles';
-
-const daysOfTheWeek = {
-    SUNDAY: 0,
-    MONDAY: 1,
-    TUESDAY: 2,
-    WEDNESDAY: 3,
-    THURSDAY: 4,
-    FRIDAY: 5,
-    SATURDAY: 6,
-};
-
-const getDayOfWeek = (dayOffset: number): string => {
-    if (dayOffset === 0) return 'TODAY';
-    const dayOfTheWeek = new Date().getDay();
-    let day = dayOfTheWeek + dayOffset;
-    if (day > 6) day -= 7;
-    switch (day) {
-        case daysOfTheWeek.SUNDAY:
-            return 'Sunday';
-        case daysOfTheWeek.MONDAY:
-            return 'Monday';
-        case daysOfTheWeek.TUESDAY:
-            return 'Tuesday';
-        case daysOfTheWeek.WEDNESDAY:
-            return 'Wednesday';
-        case daysOfTheWeek.THURSDAY:
-            return 'Thursday';
-        case daysOfTheWeek.FRIDAY:
-            return 'Friday';
-        case daysOfTheWeek.SATURDAY:
-            return 'Saturday';
-    }
-};
+import { Heading, WeatherRow } from './weather-styles';
 
 const initialState = {
-    weather: {
-        currently: {},
-        daily: { data: [] },
-    },
+    weather: {},
 };
 type State = Readonly<typeof initialState>;
 
@@ -55,30 +19,22 @@ class WeatherPage extends React.PureComponent {
     }
 
     render(): JSX.Element {
-        let listItems: {};
         const { weather } = this.state;
-        const { daily } = weather;
-        if (daily) {
-            const dailyData = daily.data;
-            listItems = dailyData.map((day, index) => {
-                return (
-                    <Day key={day.time}>
-                        <DayOfTheWeek>{getDayOfWeek(index)}</DayOfTheWeek>
-                        <WeatherCard
-                            icon={day.icon}
-                            summary={day.summary}
-                            temperatureHigh={day.temperatureHigh}
-                            temperatureLow={day.temperatureLow}
-                        />
-                    </Day>
-                );
-            });
-        }
+        const dailyWeather = weather['daily'];
+        const currentWeather = weather['currently'];
         return (
             <div className="Weather">
-                <WeatherRow>{listItems}</WeatherRow>
-                <Heading>Current Weather</Heading>
-                {weather && <CurrentWeather currentWeather={weather.currently} />}
+                {dailyWeather && (
+                    <WeatherRow>
+                        <WeatherCardContainer daily={dailyWeather} />
+                    </WeatherRow>
+                )}
+                {currentWeather && (
+                    <>
+                        <Heading>Current Weather</Heading>
+                        <CurrentWeather currentWeather={weather['currently']} />
+                    </>
+                )}
             </div>
         );
     }
