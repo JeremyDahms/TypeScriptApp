@@ -10,7 +10,8 @@
             "dom"
         ],
         "removeComments": true,
-        "allowSyntheticDefaultImports": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
         "jsx": "react",
         //"allowJs": true,
         "baseUrl": "./",

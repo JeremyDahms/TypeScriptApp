@@ -4,13 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.tsx',
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
+        alias: {
+            components: path.resolve(__dirname, 'src/components'),
+        },
     },
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: '[name].[hash].js',
+        filename: '[name].[contenthash].js',
         publicPath: '/',
     },
     module: {
@@ -18,21 +22,17 @@ module.exports = {
             {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'ts-loader',
-                    },
-                ],
+                use: 'ts-loader',
             },
             {
                 test: /\.svg$/,
-                loader: 'url-loader',
+                use: 'url-loader',
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
                 enforce: 'pre',
                 test: /\.js$/,
-                loader: 'source-map-loader',
+                use: 'source-map-loader',
             },
         ],
     },
