@@ -40,14 +40,13 @@ const NameTyper: React.FC = () => {
     const typeIncrement = () => {
         if (idx >= MY_NAME.length) return;
 
-        const newName = name + MY_NAME.charAt(idx);
+        setName(name + MY_NAME.charAt(idx));
         setIdx((idx) => idx + 1);
-        setName(newName);
     };
     useInterval(
         typeIncrement,
         // Delay in milliseconds or null to stop it
-        300,
+        200,
     );
 
     return <SidebarInfo>{name}</SidebarInfo>;

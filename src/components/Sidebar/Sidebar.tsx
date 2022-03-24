@@ -6,9 +6,8 @@ import NameTyper from './NameTyper';
 import SubMenu from './SubMenu';
 
 const SidebarNav = styled.nav`
-    border-right: 1px solid #e5e5e5;
     background-image: linear-gradient(#212121, #aaa);
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;

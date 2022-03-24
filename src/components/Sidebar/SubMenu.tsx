@@ -53,9 +53,9 @@ interface Item {
 }
 
 const SubMenu = (props: SubMenuProps) => {
-    const [subNav, setSubNav] = React.useState(false);
+    const [subNavIsOpen, setSubNav] = React.useState(false);
 
-    const showSubNav = () => setSubNav(!subNav);
+    const showSubNav = () => setSubNav(!subNavIsOpen);
 
     return (
         <>
@@ -64,15 +64,9 @@ const SubMenu = (props: SubMenuProps) => {
                     {props.item.icon}
                     <SidebarLabel>{props.item.title}</SidebarLabel>
                 </div>
-                <div>
-                    {props.item.subNav && subNav
-                        ? props.item.iconOpened
-                        : props.item.subNav
-                        ? props.item.iconClosed
-                        : null}
-                </div>
+                {props.item.subNav && subNavIsOpen ? props.item.iconOpened : props.item.iconClosed}
             </SidebarLink>
-            {subNav &&
+            {subNavIsOpen &&
                 props.item.subNav.map((item: Item, index) => {
                     return (
                         <DropdownLink to={item.path}>

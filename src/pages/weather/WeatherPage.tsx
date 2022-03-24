@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getWeather } from '../../api/darkSky-service';
-import WeatherCardContainer from './WeatherCard/WeatherCardContainer';
-import CurrentWeather from './CurrentWeather/CurrentWeather';
+import WeatherCardContainer from './weather-card/WeatherCardContainer';
+import CurrentWeather from './current-weather/CurrentWeather';
 import { Heading, WeatherRow } from './weather-styles';
 
 const initialState = {
